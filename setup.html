@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Setup · ExerciseDB</title>
+  <title>中文健身动作库 · 开发者指南</title>
+  <link rel="icon" href="data:," />
   <style>
     /* ── Design Tokens ──────────────────────────────── */
     :root {
@@ -468,14 +469,14 @@
 
 <!-- Header -->
 <header class="site-header">
-  <div class="site-logo">Exercise<span>DB</span></div>
+  <div class="site-logo">健身动作<span>库</span></div>
   <div class="header-divider"></div>
-  <span class="header-label">Developer Setup</span>
+  <span class="header-label">开发者指南</span>
   <a class="back-link" href="index.html">
     <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M10 4L6 8l4 4"/>
     </svg>
-    Back to Browse
+    返回动作库
   </a>
 </header>
 
@@ -484,7 +485,7 @@
 
   <!-- Left Nav -->
   <nav class="page-nav" id="page-nav">
-    <div class="nav-group-label">Contents</div>
+    <div class="nav-group-label">目录</div>
     <a class="nav-link active" href="#db-setup" data-section="db-setup">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <ellipse cx="8" cy="4" rx="6" ry="2.5"/>
@@ -492,7 +493,7 @@
         <path d="M2 7v3c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5V7"/>
         <path d="M2 10v2c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5v-2"/>
       </svg>
-      Database Setup
+      数据库配置
     </a>
     <div class="nav-spacer"></div>
     <a class="nav-link" href="#api-integration" data-section="api-integration">
@@ -501,7 +502,7 @@
         <polyline points="11 4 15 8 11 12"/>
         <line x1="8" y1="2" x2="8" y2="14"/>
       </svg>
-      API Integration
+      API 接入
     </a>
     <div class="nav-spacer"></div>
     <a class="nav-link" href="#ask-llm" data-section="ask-llm">
@@ -509,20 +510,20 @@
         <path d="M14 2H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3l3 2 3-2h3a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
         <path d="M8 6v2M8 10h.01"/>
       </svg>
-      Ask Your LLM
+      AI 后端生成
     </a>
   </nav>
 
   <!-- Main Content -->
   <main class="page-content">
 
-    <!-- ── SECTION 1: Database Setup ──────────────────── -->
+    <!-- ── SECTION 1: 数据库配置 ──────────────────── -->
     <section class="section" id="db-setup">
       <div class="section-header">
         <div class="section-num">1</div>
-        <h2 class="section-title">Database Setup</h2>
+        <h2 class="section-title">数据库配置</h2>
       </div>
-      <p class="section-desc">Import all 1,324 exercises into your database in 3 steps. Choose your database engine below.</p>
+      <p class="section-desc">选择数据库类型，通过三个步骤导入全部 1,324 条中文动作数据。</p>
 
       <div class="section-body">
         <!-- DB Tabs -->
@@ -538,10 +539,10 @@
           <div class="step">
             <div class="step-num">1</div>
             <div class="step-body">
-              <h3 class="step-title">Create Table</h3>
-              <p class="step-desc">Run this in your database client (SSMS, DBeaver, pgAdmin, TablePlus, etc.):</p>
+              <h3 class="step-title">创建数据表</h3>
+              <p class="step-desc">在数据库客户端（SSMS、DBeaver、pgAdmin、TablePlus 等）中执行以下 SQL：</p>
               <div class="code-block">
-                <button class="copy-btn" id="copy-create-btn">Copy</button>
+                <button class="copy-btn" id="copy-create-btn">复制</button>
                 <pre class="code-pre" id="create-table-sql"></pre>
               </div>
             </div>
@@ -551,14 +552,14 @@
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-body">
-              <h3 class="step-title">Import Data</h3>
-              <p class="step-desc">Generate a <code>.sql</code> file with all 1,324 INSERT statements. The file is built entirely in your browser — nothing is uploaded to any server.</p>
+              <h3 class="step-title">导入数据</h3>
+              <p class="step-desc">生成包含全部 1,324 条中文动作 INSERT 语句的 <code>.sql</code> 文件。文件完全在浏览器内生成，无需上传到服务器。</p>
               <div style="display:flex;align-items:center;gap:0;">
                 <button class="generate-btn" id="generate-sql-btn">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
                     <path d="M8 2v8M5 7l3 3 3-3"/><path d="M2 12h12"/>
                   </svg>
-                  Generate INSERT SQL
+                  生成并下载 INSERT SQL
                 </button>
                 <span class="generate-status" id="generate-status"></span>
               </div>
@@ -569,18 +570,18 @@
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-body">
-              <h3 class="step-title">Media Files</h3>
-              <p class="step-desc">Download the media archives and place them in your web server root or CDN. The <code>image</code> and <code>gif_url</code> columns store relative paths — prepend your base URL in your app.</p>
+              <h3 class="step-title">媒体文件</h3>
+              <p class="step-desc">将媒体目录放到服务器或 CDN。<code>image</code> 和 <code>gif_url</code> 字段保存相对路径，请在应用中拼接资源根地址。使用媒体前请查看 NOTICE.md 中的独立授权条款。</p>
               <div class="code-block">
                 <pre class="code-pre">your-server.com/
-├── images/   ← 1,324 JPG thumbnails
-└── videos/   ← 1,324 GIF animations</pre>
+├── images/   ← 1,324 张 JPG 缩略图
+└── videos/   ← 1,324 个 GIF 动画</pre>
               </div>
               <div class="media-note">
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px">
                   <circle cx="8" cy="8" r="6"/><path d="M8 7v4M8 5.5h.01"/>
                 </svg>
-                The <code>images/</code> and <code>videos/</code> folders are already included in the repository. After cloning, just copy them to your server or CDN — no separate download needed.
+                仓库已包含 <code>images/</code> 和 <code>videos/</code> 目录，无需另行下载。媒体版权归 Gym visual 所有，须保留署名并遵守独立授权条款。
               </div>
             </div>
           </div>
@@ -590,18 +591,18 @@
 
     <div class="divider"></div>
 
-    <!-- ── SECTION 2: API Integration ─────────────────── -->
+    <!-- ── SECTION 2: API 接入 ─────────────────── -->
     <section class="section" id="api-integration">
       <div class="section-header">
         <div class="section-num">2</div>
-        <h2 class="section-title">API Integration</h2>
+        <h2 class="section-title">API 接入</h2>
       </div>
-      <p class="section-desc">Client-side code examples showing how to call your backend API from your app. Enter your API base URL below — all examples update live.</p>
+      <p class="section-desc">以下客户端示例用于调用你自己部署的后端 API。输入 API 根地址，示例代码会同步更新。此项目本身不提供在线 API 服务。</p>
 
       <div class="section-body">
         <!-- Base URL Input -->
         <div class="url-input-row">
-          <span class="url-label">BASE URL</span>
+          <span class="url-label">API 根地址</span>
           <input
             type="url"
             class="url-input"
@@ -631,11 +632,11 @@
             <div class="endpoint-header">
               <span class="method-badge">GET</span>
               <span class="endpoint-path">/exercises/<span style="color:var(--accent)">:id</span></span>
-              <span class="endpoint-desc">Fetch a single exercise by ID</span>
+              <span class="endpoint-desc">按 ID 获取单个动作</span>
             </div>
             <div class="endpoint-body">
               <div class="code-block">
-                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+                <button class="copy-btn" onclick="copyBlock(this)">复制</button>
                 <pre class="code-pre api-code" data-endpoint="getOne" id="code-getOne"></pre>
               </div>
             </div>
@@ -646,11 +647,11 @@
             <div class="endpoint-header">
               <span class="method-badge">GET</span>
               <span class="endpoint-path">/exercises<span style="color:var(--text-tertiary)">?page=1&amp;limit=20</span></span>
-              <span class="endpoint-desc">Paginated list of exercises</span>
+              <span class="endpoint-desc">分页获取动作列表</span>
             </div>
             <div class="endpoint-body">
               <div class="code-block">
-                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+                <button class="copy-btn" onclick="copyBlock(this)">复制</button>
                 <pre class="code-pre api-code" data-endpoint="getAll" id="code-getAll"></pre>
               </div>
             </div>
@@ -660,12 +661,12 @@
           <div class="endpoint-card">
             <div class="endpoint-header">
               <span class="method-badge">GET</span>
-              <span class="endpoint-path">/exercises<span style="color:var(--text-tertiary)">?category=Strength&amp;body_part=Chest</span></span>
-              <span class="endpoint-desc">Filter by category, body part, equipment</span>
+              <span class="endpoint-path">/exercises<span style="color:var(--text-tertiary)">?category=胸部&amp;body_part=胸部</span></span>
+              <span class="endpoint-desc">按身体部位和器械筛选</span>
             </div>
             <div class="endpoint-body">
               <div class="code-block">
-                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+                <button class="copy-btn" onclick="copyBlock(this)">复制</button>
                 <pre class="code-pre api-code" data-endpoint="getFiltered" id="code-getFiltered"></pre>
               </div>
             </div>
@@ -677,20 +678,20 @@
 
     <div class="divider"></div>
 
-    <!-- ── SECTION 3: Ask Your LLM ─────────────────────── -->
+    <!-- ── SECTION 3: AI 后端生成 ─────────────────────── -->
     <section class="section" id="ask-llm">
       <div class="section-header">
         <div class="section-num">3</div>
-        <h2 class="section-title">Ask Your LLM</h2>
+        <h2 class="section-title">AI 后端生成</h2>
       </div>
       <p class="section-desc">
-        Don't want to write a backend from scratch? Copy this prompt into ChatGPT, Claude, Gemini, or any LLM — it contains everything needed to generate a complete, production-ready API in one shot.
+        选择框架和数据库，复制下方中文提示词到 ChatGPT、Claude、Gemini 等 AI 工具，生成后端 API 的初始实现。部署前请自行审查和测试生成代码。
       </p>
 
       <div class="section-body">
         <div class="llm-selectors">
           <div class="selector-group">
-            <div class="selector-label">Framework</div>
+            <div class="selector-label">后端框架</div>
             <div class="selector-tabs" id="framework-tabs">
               <button class="selector-btn active" data-fw="express">Express.js</button>
               <button class="selector-btn" data-fw="fastapi">FastAPI</button>
@@ -701,7 +702,7 @@
             </div>
           </div>
           <div class="selector-group">
-            <div class="selector-label">Database</div>
+            <div class="selector-label">数据库</div>
             <div class="selector-tabs" id="llm-db-tabs">
               <button class="selector-btn active" data-llmdb="postgresql">PostgreSQL</button>
               <button class="selector-btn" data-llmdb="mysql">MySQL</button>
@@ -720,9 +721,9 @@
               <rect x="4" y="4" width="9" height="11" rx="1.5"/>
               <path d="M11 4V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1"/>
             </svg>
-            Copy Prompt
+            复制提示词
           </button>
-          <span class="llm-hint">Paste into ChatGPT, Claude, Gemini, or any LLM</span>
+          <span class="llm-hint">粘贴到 ChatGPT、Claude、Gemini 等 AI 工具</span>
         </div>
       </div>
     </section>
@@ -730,7 +731,19 @@
   </main>
 </div>
 
+<script src="data/exercises.zh-CN.js"></script>
 <script>
+  async function writeClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      try { await navigator.clipboard.writeText(text); return; } catch (_) { /* 使用兼容方式 */ }
+    }
+    const field = document.createElement('textarea');
+    field.value = text; field.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(field); field.select();
+    const copied = document.execCommand('copy'); field.remove();
+    if (!copied) throw new Error('无法自动复制，请手动选择文本。');
+  }
+
 // ══════════════════════════════════════════════════
 // ── DB SQL Templates ───────────────────────────────
 // ══════════════════════════════════════════════════
@@ -751,11 +764,14 @@ const DB_SQL = {
   instructions_hi   NVARCHAR(MAX),
   instructions_pl   NVARCHAR(MAX),
   instructions_ko   NVARCHAR(MAX),
+  instructions_fr   NVARCHAR(MAX),
   muscle_group      NVARCHAR(100),
-  secondary_muscles NVARCHAR(MAX),  -- JSON array stored as string
+  secondary_muscles NVARCHAR(MAX),  -- JSON 数组以文本保存
   target            NVARCHAR(100),
   image             NVARCHAR(500),
   gif_url           NVARCHAR(500),
+  media_id          NVARCHAR(500),
+  attribution       NVARCHAR(500),
   created_at        DATETIME2
 );`,
   postgresql: `CREATE TABLE exercises (
@@ -773,11 +789,14 @@ const DB_SQL = {
   instructions_hi   TEXT,
   instructions_pl   TEXT,
   instructions_ko   TEXT,
+  instructions_fr   TEXT,
   muscle_group      VARCHAR(100),
   secondary_muscles JSONB,
   target            VARCHAR(100),
   image             VARCHAR(500),
   gif_url           VARCHAR(500),
+  media_id          VARCHAR(500),
+  attribution       VARCHAR(500),
   created_at        TIMESTAMPTZ
 );`,
   mysql: `CREATE TABLE exercises (
@@ -795,11 +814,14 @@ const DB_SQL = {
   instructions_hi   TEXT,
   instructions_pl   TEXT,
   instructions_ko   TEXT,
+  instructions_fr   TEXT,
   muscle_group      VARCHAR(100),
   secondary_muscles JSON,
   target            VARCHAR(100),
   image             VARCHAR(500),
   gif_url           VARCHAR(500),
+  media_id          VARCHAR(500),
+  attribution       VARCHAR(500),
   created_at        DATETIME
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`,
   sqlite: `CREATE TABLE exercises (
@@ -817,11 +839,14 @@ const DB_SQL = {
   instructions_hi   TEXT,
   instructions_pl   TEXT,
   instructions_ko   TEXT,
+  instructions_fr   TEXT,
   muscle_group      TEXT,
-  secondary_muscles TEXT,  -- JSON array stored as string
+  secondary_muscles TEXT,  -- JSON 数组以文本保存
   target            TEXT,
   image             TEXT,
   gif_url           TEXT,
+  media_id          TEXT,
+  attribution       TEXT,
   created_at        TEXT
 );`
 };
@@ -833,20 +858,20 @@ const DB_SQL = {
 const API_TEMPLATES = {
   curl: {
     getOne: (base) =>
-`# GET single exercise by ID
+`# 按 ID 获取单个动作
 curl -s "${base}/exercises/0001"
 
-# Pretty-print the response (Python 3 built-in)
+# 使用 Python 3 内置工具格式化响应
 curl -s "${base}/exercises/0001" | python3 -m json.tool`,
 
     getAll: (base) =>
-`# GET all exercises — page 1, 20 per page
+`# 获取动作列表：第 1 页，每页 20 条
 curl -s "${base}/exercises?page=1&limit=20"
 
-# Page 2, 50 per page
+# 第 2 页，每页 50 条
 curl -s "${base}/exercises?page=2&limit=50"
 
-# Response shape:
+# 响应结构：
 # {
 #   "data": [ ...exercises ],
 #   "total": 1324,
@@ -856,40 +881,40 @@ curl -s "${base}/exercises?page=2&limit=50"
 # }`,
 
     getFiltered: (base) =>
-`# Filter by category
-curl -s "${base}/exercises?category=Strength&page=1&limit=20"
+`# 按身体部位分类筛选（自动编码中文参数）
+curl -sG "${base}/exercises" --data-urlencode "category=胸部" -d "page=1" -d "limit=20"
 
-# Filter by body part
-curl -s "${base}/exercises?body_part=Chest&page=1&limit=20"
+# 按身体部位筛选
+curl -sG "${base}/exercises" --data-urlencode "body_part=胸部" -d "page=1" -d "limit=20"
 
-# Combine filters
-curl -s "${base}/exercises?category=Strength&body_part=Chest&page=1&limit=20"
+# 组合筛选
+curl -sG "${base}/exercises" --data-urlencode "category=胸部" --data-urlencode "equipment=杠铃" -d "page=1" -d "limit=20"
 
-# With equipment filter
-curl -s "${base}/exercises?equipment=Barbell&target=Pectorals&page=1&limit=20"`,
+# 按器械和目标肌群筛选
+curl -sG "${base}/exercises" --data-urlencode "equipment=杠铃" --data-urlencode "target=胸肌" -d "page=1" -d "limit=20"`,
   },
 
   js: {
     getOne: (base) =>
 `const BASE_URL = '${base}';
 
-// GET /exercises/:id — fetch a single exercise
+// GET /exercises/:id — 获取单个动作
 async function getExercise(id) {
   const res = await fetch(\`\${BASE_URL}/exercises/\${id}\`);
   if (!res.ok) throw new Error(\`HTTP \${res.status}\`);
   return res.json();
 }
 
-// Usage
+// 使用示例
 const exercise = await getExercise('0001');
-console.log(exercise.name);        // "Barbell Bench Press"
-console.log(exercise.category);    // "Strength"
-console.log(exercise.gif_url);     // "videos/0001.gif"`,
+console.log(exercise.name);        // "四分之三程仰卧起坐"
+console.log(exercise.category);    // "腰腹部"
+console.log(exercise.gif_url);     // "videos/0001-2gPfomN.gif"`,
 
     getAll: (base) =>
 `const BASE_URL = '${base}';
 
-// GET /exercises?page=&limit= — paginated list
+// GET /exercises?page=&limit= — 分页列表
 async function getExercises({ page = 1, limit = 20 } = {}) {
   const params = new URLSearchParams({ page, limit });
   const res = await fetch(\`\${BASE_URL}/exercises?\${params}\`);
@@ -897,9 +922,9 @@ async function getExercises({ page = 1, limit = 20 } = {}) {
   return res.json();
 }
 
-// Usage
+// 使用示例
 const result = await getExercises({ page: 1, limit: 20 });
-console.log(result.data);       // Array of exercises
+console.log(result.data);       // 动作数组
 console.log(result.total);      // 1324
 console.log(result.page);       // 1
 console.log(result.totalPages); // 67`,
@@ -907,7 +932,7 @@ console.log(result.totalPages); // 67`,
     getFiltered: (base) =>
 `const BASE_URL = '${base}';
 
-// GET /exercises with filters
+// GET /exercises 带筛选条件
 async function getExercisesFiltered({
   page = 1,
   limit = 20,
@@ -927,14 +952,14 @@ async function getExercisesFiltered({
   return res.json();
 }
 
-// Usage
+// 使用示例
 const result = await getExercisesFiltered({
-  category: 'Strength',
-  bodyPart: 'Chest',
+  category: '胸部',
+  bodyPart: '胸部',
   page: 1,
   limit: 20,
 });
-console.log(result.data[0].name); // e.g. "Barbell Bench Press"`,
+console.log(result.data[0].name); // 例如：杠铃卧推`,
   },
 
   python: {
@@ -943,24 +968,24 @@ console.log(result.data[0].name); // e.g. "Barbell Bench Press"`,
 
 BASE_URL = "${base}"
 
-# GET /exercises/:id — fetch a single exercise
+# GET /exercises/:id — 获取单个动作
 def get_exercise(exercise_id: str) -> dict:
     res = requests.get(f"{BASE_URL}/exercises/{exercise_id}")
     res.raise_for_status()
     return res.json()
 
-# Usage
+# 使用示例
 exercise = get_exercise("0001")
-print(exercise["name"])      # Barbell Bench Press
-print(exercise["category"])  # Strength
-print(exercise["gif_url"])   # videos/0001.gif`,
+print(exercise["name"])      # 四分之三程仰卧起坐
+print(exercise["category"])  # 腰腹部
+print(exercise["gif_url"])   # videos/0001-2gPfomN.gif`,
 
     getAll: (base) =>
 `import requests
 
 BASE_URL = "${base}"
 
-# GET /exercises?page=&limit= — paginated list
+# GET /exercises?page=&limit= — 分页列表
 def get_exercises(page: int = 1, limit: int = 20) -> dict:
     res = requests.get(f"{BASE_URL}/exercises", params={
         "page": page,
@@ -969,9 +994,9 @@ def get_exercises(page: int = 1, limit: int = 20) -> dict:
     res.raise_for_status()
     return res.json()
 
-# Usage
+# 使用示例
 result = get_exercises(page=1, limit=20)
-print(result["data"])        # list of exercises
+print(result["data"])        # 动作列表
 print(result["total"])       # 1324
 print(result["page"])        # 1
 print(result["totalPages"])  # 67`,
@@ -981,7 +1006,7 @@ print(result["totalPages"])  # 67`,
 
 BASE_URL = "${base}"
 
-# GET /exercises with filters
+# GET /exercises 带筛选条件
 def get_exercises_filtered(
     page: int = 1,
     limit: int = 20,
@@ -1000,14 +1025,14 @@ def get_exercises_filtered(
     res.raise_for_status()
     return res.json()
 
-# Usage
+# 使用示例
 result = get_exercises_filtered(
-    category="Strength",
-    body_part="Chest",
+    category="胸部",
+    body_part="胸部",
     page=1,
     limit=20,
 )
-print(result["data"][0]["name"])  # e.g. Barbell Bench Press`,
+print(result["data"][0]["name"])  # 例如：杠铃卧推`,
   },
 
   csharp: {
@@ -1016,7 +1041,7 @@ print(result["data"][0]["name"])  # e.g. Barbell Bench Press`,
 
 var client = new HttpClient { BaseAddress = new Uri("${base}") };
 
-// GET /exercises/:id — fetch a single exercise
+// GET /exercises/:id — 获取单个动作
 async Task<Exercise?> GetExerciseAsync(string id)
 {
     var res = await client.GetAsync($"/exercises/{id}");
@@ -1024,13 +1049,13 @@ async Task<Exercise?> GetExerciseAsync(string id)
     return await res.Content.ReadFromJsonAsync<Exercise>();
 }
 
-// Usage
+// 使用示例
 var exercise = await GetExerciseAsync("0001");
-Console.WriteLine(exercise?.Name);     // Barbell Bench Press
-Console.WriteLine(exercise?.Category); // Strength
-Console.WriteLine(exercise?.GifUrl);   // videos/0001.gif
+Console.WriteLine(exercise?.Name);     // 四分之三程仰卧起坐
+Console.WriteLine(exercise?.Category); // 腰腹部
+Console.WriteLine(exercise?.GifUrl);   // videos/0001-2gPfomN.gif
 
-// Model
+// 数据模型
 record Exercise(
     string Id, string Name, string Category, string BodyPart,
     string Equipment, string? InstructionsEn, string? InstructionsEs, string? InstructionsIt, string? InstructionsTr, string? InstructionsRu,
@@ -1043,20 +1068,20 @@ record Exercise(
 
 var client = new HttpClient { BaseAddress = new Uri("${base}") };
 
-// GET /exercises?page=&limit= — paginated list
+// GET /exercises?page=&limit= — 分页列表
 async Task<PagedResult<Exercise>> GetExercisesAsync(int page = 1, int limit = 20)
 {
     return await client.GetFromJsonAsync<PagedResult<Exercise>>(
         $"/exercises?page={page}&limit={limit}"
-    ) ?? throw new Exception("Null response");
+    ) ?? throw new Exception("响应为空");
 }
 
-// Usage
+// 使用示例
 var result = await GetExercisesAsync(page: 1, limit: 20);
 Console.WriteLine(result.Total);      // 1324
 Console.WriteLine(result.TotalPages); // 67
 
-// Models
+// 数据模型
 record Exercise(string Id, string Name, string Category, string BodyPart,
     string Equipment, string? InstructionsEn, string Target, string GifUrl);
 record PagedResult<T>(T[] Data, int Total, int Page, int Limit, int TotalPages);`,
@@ -1067,7 +1092,7 @@ using System.Web;
 
 var client = new HttpClient { BaseAddress = new Uri("${base}") };
 
-// GET /exercises with filters
+// GET /exercises 带筛选条件
 async Task<PagedResult<Exercise>> GetExercisesFilteredAsync(
     int page = 1, int limit = 20,
     string? category = null, string? bodyPart = null,
@@ -1083,13 +1108,13 @@ async Task<PagedResult<Exercise>> GetExercisesFilteredAsync(
 
     return await client.GetFromJsonAsync<PagedResult<Exercise>>(
         $"/exercises?{qs}"
-    ) ?? throw new Exception("Null response");
+    ) ?? throw new Exception("响应为空");
 }
 
-// Usage
+// 使用示例
 var result = await GetExercisesFilteredAsync(
-    category: "Strength", bodyPart: "Chest", page: 1, limit: 20);
-Console.WriteLine(result.Data[0].Name); // e.g. Barbell Bench Press`,
+    category: "胸部", bodyPart: "胸部", page: 1, limit: 20);
+Console.WriteLine(result.Data[0].Name); // 例如：杠铃卧推`,
   },
 
   java: {
@@ -1100,7 +1125,7 @@ import java.net.http.*;
 HttpClient client = HttpClient.newHttpClient();
 String BASE_URL = "${base}";
 
-// GET /exercises/:id — fetch a single exercise
+// GET /exercises/:id — 获取单个动作
 String getExercise(String id) throws Exception {
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(BASE_URL + "/exercises/" + id))
@@ -1114,10 +1139,10 @@ String getExercise(String id) throws Exception {
     if (response.statusCode() != 200)
         throw new RuntimeException("HTTP " + response.statusCode());
 
-    return response.body(); // parse with Jackson/Gson
+    return response.body(); // 使用 Jackson/Gson 解析
 }
 
-// Usage (with Jackson ObjectMapper)
+// 使用示例（Jackson ObjectMapper）
 // ObjectMapper mapper = new ObjectMapper();
 // Map<?,?> exercise = mapper.readValue(getExercise("0001"), Map.class);`,
 
@@ -1128,7 +1153,7 @@ import java.net.http.*;
 HttpClient client = HttpClient.newHttpClient();
 String BASE_URL = "${base}";
 
-// GET /exercises?page=&limit= — paginated list
+// GET /exercises?page=&limit= — 分页列表
 String getExercises(int page, int limit) throws Exception {
     String url = BASE_URL + "/exercises?page=" + page + "&limit=" + limit;
 
@@ -1145,7 +1170,7 @@ String getExercises(int page, int limit) throws Exception {
     // { "data": [...], "total": 1324, "page": 1, "limit": 20, "totalPages": 67 }
 }
 
-// Usage
+// 使用示例
 String json = getExercises(1, 20);`,
 
     getFiltered: (base) =>
@@ -1157,7 +1182,7 @@ import java.nio.charset.StandardCharsets;
 HttpClient client = HttpClient.newHttpClient();
 String BASE_URL = "${base}";
 
-// GET /exercises with filters
+// GET /exercises 带筛选条件
 String getExercisesFiltered(
     int page, int limit,
     String category, String bodyPart, String equipment
@@ -1181,8 +1206,8 @@ String getExercisesFiltered(
     return client.send(request, HttpResponse.BodyHandlers.ofString()).body();
 }
 
-// Usage
-String json = getExercisesFiltered(1, 20, "Strength", "Chest", null);`,
+// 使用示例
+String json = getExercisesFiltered(1, 20, "胸部", "胸部", null);`,
   },
 
   php: {
@@ -1191,38 +1216,38 @@ String json = getExercisesFiltered(1, 20, "Strength", "Chest", null);`,
 
 define('BASE_URL', '${base}');
 
-// GET /exercises/:id — fetch a single exercise
+// GET /exercises/:id — 获取单个动作
 function getExercise(string $id): array
 {
     $url  = BASE_URL . '/exercises/' . urlencode($id);
     $json = file_get_contents($url);
-    if ($json === false) throw new RuntimeException("Request failed");
+    if ($json === false) throw new RuntimeException("请求失败");
     return json_decode($json, true);
 }
 
-// Usage
+// 使用示例
 $exercise = getExercise('0001');
-echo $exercise['name'];      // Barbell Bench Press
-echo $exercise['category'];  // Strength
-echo $exercise['gif_url'];   // videos/0001.gif`,
+echo $exercise['name'];      // 四分之三程仰卧起坐
+echo $exercise['category'];  // 腰腹部
+echo $exercise['gif_url'];   // videos/0001-2gPfomN.gif`,
 
     getAll: (base) =>
 `<?php
 
 define('BASE_URL', '${base}');
 
-// GET /exercises?page=&limit= — paginated list
+// GET /exercises?page=&limit= — 分页列表
 function getExercises(int $page = 1, int $limit = 20): array
 {
     $params = http_build_query(['page' => $page, 'limit' => $limit]);
     $json   = file_get_contents(BASE_URL . '/exercises?' . $params);
-    if ($json === false) throw new RuntimeException("Request failed");
+    if ($json === false) throw new RuntimeException("请求失败");
     return json_decode($json, true);
 }
 
-// Usage
+// 使用示例
 $result = getExercises(1, 20);
-print_r($result['data']);       // array of exercises
+print_r($result['data']);       // 动作数组
 echo $result['total'];          // 1324
 echo $result['totalPages'];     // 67`,
 
@@ -1231,7 +1256,7 @@ echo $result['totalPages'];     // 67`,
 
 define('BASE_URL', '${base}');
 
-// GET /exercises with filters
+// GET /exercises 带筛选条件
 function getExercisesFiltered(
     int $page = 1,
     int $limit = 20,
@@ -1247,13 +1272,13 @@ function getExercisesFiltered(
     if ($target)    $params['target']    = $target;
 
     $json = file_get_contents(BASE_URL . '/exercises?' . http_build_query($params));
-    if ($json === false) throw new RuntimeException("Request failed");
+    if ($json === false) throw new RuntimeException("请求失败");
     return json_decode($json, true);
 }
 
-// Usage
-$result = getExercisesFiltered(1, 20, 'Strength', 'Chest');
-echo $result['data'][0]['name']; // e.g. Barbell Bench Press`,
+// 使用示例
+$result = getExercisesFiltered(1, 20, '胸部', '胸部');
+echo $result['data'][0]['name']; // 例如：杠铃卧推`,
   },
 
   go: {
@@ -1268,7 +1293,7 @@ import (
 
 const baseURL = "${base}"
 
-// GetExercise fetches a single exercise by ID
+// GetExercise 根据 ID 获取单个动作
 func GetExercise(id string) (map[string]any, error) {
     resp, err := http.Get(baseURL + "/exercises/" + id)
     if err != nil {
@@ -1281,15 +1306,16 @@ func GetExercise(id string) (map[string]any, error) {
     }
 
     var result map[string]any
-    return result, json.NewDecoder(resp.Body).Decode(&result)
+    decodeErr := json.NewDecoder(resp.Body).Decode(&result)
+    return result, decodeErr
 }
 
-// Usage
+// 使用示例
 func main() {
     exercise, err := GetExercise("0001")
     if err != nil { panic(err) }
-    fmt.Println(exercise["name"])     // Barbell Bench Press
-    fmt.Println(exercise["category"]) // Strength
+    fmt.Println(exercise["name"])     // 四分之三程仰卧起坐
+    fmt.Println(exercise["category"]) // 腰腹部
 }`,
 
     getAll: (base) =>
@@ -1305,7 +1331,7 @@ import (
 
 const baseURL = "${base}"
 
-// GetExercises fetches paginated exercises
+// GetExercises 分页获取动作
 func GetExercises(page, limit int) (map[string]any, error) {
     params := url.Values{
         "page":  {strconv.Itoa(page)},
@@ -1318,10 +1344,11 @@ func GetExercises(page, limit int) (map[string]any, error) {
     defer resp.Body.Close()
 
     var result map[string]any
-    return result, json.NewDecoder(resp.Body).Decode(&result)
+    decodeErr := json.NewDecoder(resp.Body).Decode(&result)
+    return result, decodeErr
 }
 
-// Usage
+// 使用示例
 func main() {
     result, err := GetExercises(1, 20)
     if err != nil { panic(err) }
@@ -1342,7 +1369,7 @@ import (
 
 const baseURL = "${base}"
 
-// GetExercisesFiltered fetches exercises with optional filters
+// GetExercisesFiltered 按可选条件获取动作
 func GetExercisesFiltered(page, limit int, category, bodyPart, equipment string) (map[string]any, error) {
     params := url.Values{
         "page":  {strconv.Itoa(page)},
@@ -1359,15 +1386,16 @@ func GetExercisesFiltered(page, limit int, category, bodyPart, equipment string)
     defer resp.Body.Close()
 
     var result map[string]any
-    return result, json.NewDecoder(resp.Body).Decode(&result)
+    decodeErr := json.NewDecoder(resp.Body).Decode(&result)
+    return result, decodeErr
 }
 
-// Usage
+// 使用示例
 func main() {
-    result, err := GetExercisesFiltered(1, 20, "Strength", "Chest", "")
+    result, err := GetExercisesFiltered(1, 20, "胸部", "胸部", "")
     if err != nil { panic(err) }
     data := result["data"].([]any)
-    fmt.Println(data[0].(map[string]any)["name"]) // e.g. Barbell Bench Press
+    fmt.Println(data[0].(map[string]any)["name"]) // 例如：杠铃卧推
 }`,
   },
 };
@@ -1397,75 +1425,46 @@ function buildLlmPrompt(fwKey, dbKey) {
   const db = DB_META[dbKey];
   const schema = DB_SQL[dbKey];
 
-  return `You are a senior ${fw.lang} developer. Build a complete REST API using ${fw.name} for an exercise/fitness database.
+  return `你是一名资深 ${fw.lang} 开发者，请使用 ${fw.name} 和 ${db.name} 为中文健身动作库实现完整 REST API。
 
-## Dataset Overview
-- 1,324 fitness exercises
-- Fields: id (string, e.g. "0001"), name, category, body_part, equipment, instructions_en (full text), instructions_es (Spanish text), instructions_it (Italian text), instructions_tr (Turkish text), instructions_ru (Russian text), instructions_zh (Chinese text), instructions_hi (Hindi text), instructions_pl (Polish text), instructions_ko (Korean text), instructions_fr (French text), muscle_group, secondary_muscles (JSON array of strings), target, image (relative path like "images/0001.jpg"), gif_url (relative path like "videos/0001.gif"), created_at
+## 数据来源与结构
+- data/exercises.zh-CN.json 包含 1,324 条动作，名称、身体部位、器械和肌群均为简体中文。
+- id 是四位数字字符串（如 "0001"），保留前导零；name_en 是原始英文名称。
+- instructions 与 instruction_steps 包含 zh、en、es、it、tr、ru、hi、pl、ko、fr 十种语言；默认返回中文。
+- 数据库由下方 SQL 导入；instructions_<语言代码> 保存对应语言说明。
+- secondary_muscles 为 JSON 数组；image 和 gif_url 为相对路径。
+- 保留 media_id 和 attribution，媒体显示时必须展示 © Gym visual — https://gymvisual.com/。
 
-## Database Schema (${db.name})
+## 数据表结构
 \`\`\`sql
 ${schema}
 \`\`\`
 
-## Required Endpoints
+## 接口
+1. GET /exercises/random：随机返回一个动作，路由注册在 /exercises/:id 之前。
+2. GET /exercises/:id：按 ID 返回动作，找不到时返回 404 和 { "error": "未找到动作" }。
+3. GET /exercises：分页查询，支持 page（默认 1）、limit（默认 20，上限 100），以及 category、body_part、equipment、muscle_group、target 中文模糊筛选。
+4. GET /categories、GET /body-parts、GET /equipment：分别返回去重且排序后的中文分类、身体部位、器械数组。
 
-### 1. GET /exercises/:id
-- Return a single exercise by its id
-- Return 404 JSON error if not found: { "error": "Exercise not found" }
-
-### 2. GET /exercises
-Query parameters (all optional):
-- page (integer, default: 1)
-- limit (integer, default: 20, max: 100)
-- category (string, case-insensitive partial match)
-- body_part (string, case-insensitive partial match)
-- equipment (string, case-insensitive partial match)
-- muscle_group (string, case-insensitive partial match)
-- target (string, case-insensitive partial match)
-
-Response format:
+分页响应示例：
 \`\`\`json
-{
-  "data": [ /* array of exercise objects */ ],
-  "total": 1324,
-  "page": 1,
-  "limit": 20,
-  "totalPages": 67
-}
+{ "data": [], "total": 1324, "page": 1, "limit": 20, "totalPages": 67 }
 \`\`\`
 
-### 3. GET /exercises/random
-- Return 1 random exercise object
+## 技术要求
+- 从环境变量读取数据库连接配置；所有 SQL 使用参数化查询。
+- 保持中文 UTF-8 编码，返回 application/json；通过 ALLOWED_ORIGINS 配置允许跨域的来源。
+- 校验 page 和 limit 为正整数，非法输入返回 400，拒绝大于 100 的 limit。
+- 未预期错误返回 500 和 { "error": "服务器内部错误" }，完整异常只写入服务端日志。
+- 记录请求方法、路径、状态码、耗时。
+- 将数据库中的 instructions_<语言代码> 组装为 instructions 对象。当前 SQL 不保存 name_en 和步骤数组；如需这两个字段，请从原 JSON 按 id 导入并扩展表结构，不能假设字段已存在。
 
-### 4. GET /categories
-- Return sorted array of unique category strings
-
-### 5. GET /body-parts
-- Return sorted array of unique body_part strings
-
-### 6. GET /equipment
-- Return sorted array of unique equipment strings
-
-## Technical Requirements
-- Read DB connection string from an environment variable
-- Use parameterized queries (never interpolate user input into SQL)
-- Return JSON with Content-Type: application/json
-- Enable CORS for all origins (or read allowed origins from env var \`ALLOWED_ORIGINS\`)
-- Validate page/limit: must be positive integers; reject with 400 if invalid
-- Return 500 with { "error": "Internal server error" } on unexpected errors
-- Log each request: method, path, status code, duration in ms
-
-## Packages to use
+## 依赖参考
 ${fw.pkg}
+请按所选数据库安装相应驱动。
 
-## Deliverables
-1. Complete, runnable source code (not pseudocode — every file needed)
-2. Brief setup instructions:
-   - Install dependencies
-   - Run: \`${fw.run}\`
-
-Write clean, production-quality code. Do not skip error handling.`;
+## 交付内容
+完整可运行代码、依赖清单、环境变量示例、初始化与运行说明（启动命令：${fw.run}）、接口测试。说明和注释使用简体中文。部署前列出需要人工验证的事项。`;
 }
 
 // ══════════════════════════════════════════════════
@@ -1477,10 +1476,10 @@ let currentLang = 'curl';
 let currentFw   = 'express';
 let currentLlmDb = 'postgresql';
 let currentBaseUrl = 'https://api.yourapp.com';
-let EXERCISES = null; // lazy-loaded when generate is clicked
+// 中文数据由共享的离线脚本载入。
 
 // ══════════════════════════════════════════════════
-// ── DB Setup ───────────────────────────────────────
+// ── 开发者指南 ───────────────────────────────────────
 // ══════════════════════════════════════════════════
 
 const createSqlEl   = document.getElementById('create-table-sql');
@@ -1496,9 +1495,9 @@ function switchDbTab(db) {
   createSqlEl.textContent = DB_SQL[db];
 }
 
-function copyToClipboard(text, btn, resetLabel = 'Copy') {
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
+function copyToClipboard(text, btn, resetLabel = '复制') {
+  writeClipboard(text).then(() => {
+    btn.textContent = '已复制！';
     btn.classList.add('copied');
     setTimeout(() => {
       btn.textContent = resetLabel;
@@ -1532,6 +1531,7 @@ function buildInserts(exercises, db) {
     const instrHi = ex.instructions && ex.instructions.hi ? ex.instructions.hi : '';
     const instrPl = ex.instructions && ex.instructions.pl ? ex.instructions.pl : '';
     const instrKo = ex.instructions && ex.instructions.ko ? ex.instructions.ko : '';
+      const instrFr = ex.instructions && ex.instructions.fr ? ex.instructions.fr : '';
 
     const vals = [
       escStr(ex.id, db),
@@ -1548,15 +1548,18 @@ function buildInserts(exercises, db) {
       escStr(instrHi, db),
       escStr(instrPl, db),
       escStr(instrKo, db),
+        escStr(instrFr, db),
       escStr(ex.muscle_group, db),
       escStr(muscles, db),
       escStr(ex.target, db),
       escStr(ex.image, db),
       escStr(ex.gif_url, db),
+        escStr(ex.media_id, db),
+        escStr(ex.attribution, db),
       escStr(ex.created_at, db),
     ].join(', ');
 
-    lines.push(`INSERT INTO exercises (id, name, category, body_part, equipment, instructions_en, instructions_es, instructions_it, instructions_tr, instructions_ru, instructions_zh, instructions_hi, instructions_pl, instructions_ko, muscle_group, secondary_muscles, target, image, gif_url, created_at) VALUES (${vals});`);
+    lines.push(`INSERT INTO exercises (id, name, category, body_part, equipment, instructions_en, instructions_es, instructions_it, instructions_tr, instructions_ru, instructions_zh, instructions_hi, instructions_pl, instructions_ko, instructions_fr, muscle_group, secondary_muscles, target, image, gif_url, media_id, attribution, created_at) VALUES (${vals});`);
 
     if (db === 'mssql' && (i + 1) % 50 === 0 && i + 1 < exercises.length) {
       lines.push('GO');
@@ -1571,14 +1574,9 @@ async function generateInsertSql() {
   generateBtn.disabled = true;
 
   try {
-    if (!EXERCISES) {
-      generateStatus.textContent = 'Loading exercise data…';
-      const res = await fetch('data/exercises.json');
-      if (!res.ok) throw new Error('Could not load exercises.json');
-      EXERCISES = await res.json();
-    }
 
-    generateStatus.textContent = 'Generating…';
+
+    generateStatus.textContent = '正在生成…';
 
     await new Promise(r => setTimeout(r, 10));
 
@@ -1590,9 +1588,9 @@ async function generateInsertSql() {
     a.download = `exercises_insert_${currentDb}.sql`;
     a.click();
     URL.revokeObjectURL(url);
-    generateStatus.textContent = `✓ Downloaded exercises_insert_${currentDb}.sql`;
+    generateStatus.textContent = `✓ 已下载 exercises_insert_${currentDb}.sql`;
   } catch (e) {
-    generateStatus.textContent = 'Error generating file.';
+    generateStatus.textContent = '生成文件失败，请重试。';
     console.error(e);
   }
 
@@ -1610,7 +1608,7 @@ generateBtn.addEventListener('click', generateInsertSql);
 switchDbTab('mssql');
 
 // ══════════════════════════════════════════════════
-// ── API Integration ────────────────────────────────
+// ── API 接入 ────────────────────────────────
 // ══════════════════════════════════════════════════
 
 const baseUrlInput = document.getElementById('base-url-input');
@@ -1650,7 +1648,7 @@ function copyBlock(btn) {
 renderApiCode();
 
 // ══════════════════════════════════════════════════
-// ── Ask Your LLM ───────────────────────────────────
+// ── AI 后端生成 ───────────────────────────────────
 // ══════════════════════════════════════════════════
 
 const llmPromptBox  = document.getElementById('llm-prompt');
@@ -1679,11 +1677,11 @@ document.querySelectorAll('#llm-db-tabs .selector-btn').forEach(btn => {
 });
 
 copyPromptBtn.addEventListener('click', () => {
-  navigator.clipboard.writeText(llmPromptBox.value).then(() => {
-    copyPromptBtn.textContent = '✓ Copied!';
+  writeClipboard(llmPromptBox.value).then(() => {
+    copyPromptBtn.textContent = '✓ 已复制！';
     copyPromptBtn.classList.add('copied');
     setTimeout(() => {
-      copyPromptBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="9" height="11" rx="1.5"/><path d="M11 4V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1"/></svg> Copy Prompt`;
+      copyPromptBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="9" height="11" rx="1.5"/><path d="M11 4V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1"/></svg> 复制提示词`;
       copyPromptBtn.classList.remove('copied');
     }, 2500);
   });
@@ -1711,5 +1709,6 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(s => observer.observe(s));
 </script>
+<footer style="padding:8px 16px;font-size:12px;color:#71717a">媒体版权：© Gym visual — <a href="https://gymvisual.com/" target="_blank" rel="noopener">gymvisual.com</a> · <a href="NOTICE.zh-CN.md">媒体授权说明</a></footer>
 </body>
 </html>

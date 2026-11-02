@@ -1,430 +1,109 @@
-<div align="center">
+# 中文健身动作数据集
 
-# 💪 Exercises Dataset
+包含 **1,324 个健身动作**的简体中文项目，提供中文动作名称、身体部位、训练器械、目标与辅助肌群，以及原项目的十种语言动作说明。附带中文动作浏览器和开发者接入指南。
 
-<p>
-  <img src="videos/0025-EIeI8Vf.gif" width="120" alt="barbell bench press" />
-  <img src="videos/0043-qXTaZnJ.gif" width="120" alt="barbell full squat" />
-  <img src="videos/0032-ila4NZS.gif" width="120" alt="barbell deadlift" />
-  <img src="videos/0652-lBDjFxJ.gif" width="120" alt="pull-up" />
-  <img src="videos/0294-NbVPDMW.gif" width="120" alt="dumbbell biceps curl" />
-  <img src="videos/0334-DsgkuIt.gif" width="120" alt="dumbbell lateral raise" />
-</p>
+本项目基于 [Hasan Emir Yıldırım 的 exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) 中文化，保留上游提交历史、原始数据和版权信息。原版英文说明见 [README.en.md](README.en.md)。
 
-**A comprehensive, ready-to-use fitness exercise dataset with 1,324 exercises — each with an animation GIF, 180×180 thumbnail image, category, body-part, equipment, target and muscle-group data, and step-by-step instructions in 10 languages (English, Spanish, Italian, Turkish, Russian, Chinese, Hindi, Polish, Korean, French).**
+## 快速使用
 
-[![Exercises](https://img.shields.io/badge/Exercises-1324-blue?style=flat-square)](data/exercises.json)
-[![Animation GIFs](https://img.shields.io/badge/Animation%20GIFs-1324-brightgreen?style=flat-square)](videos/)
-[![Thumbnails](https://img.shields.io/badge/Thumbnails-1324-orange?style=flat-square)](images/)
-[![Languages](https://img.shields.io/badge/Languages-10-green?style=flat-square)](#-overview)
-[![Mobile App](https://img.shields.io/badge/App-LogPress-111111?style=flat-square&logo=react)](https://github.com/hasaneyldrm/logpress-public)
-[![License](https://img.shields.io/badge/License-MIT%20%2B%20media%20terms-blue?style=flat-square)](LICENSE)
-
-</div>
-
-> **📱 Powers the [LogPress](https://github.com/hasaneyldrm/logpress-public) app** — an AI-assisted workout tracker; this dataset is its exercise data layer. Building your own fitness app? Drop it straight into your backend.
-
----
-
-## 📦 Data Source
-
-**This repository provides:**
-
-- 1,324 exercises with category, body-part, equipment, target and muscle-group data
-- an animation GIF + 180×180 thumbnail for every exercise (media © [Gym visual](https://gymvisual.com/) — see [License](#-license--use))
-- step-by-step instructions in 10 languages (🇬🇧 English, 🇪🇸 Spanish, 🇮🇹 Italian, 🇹🇷 Turkish, 🇷🇺 Russian, 🇨🇳 Chinese, 🇮🇳 Hindi, 🇵🇱 Polish, 🇰🇷 Korean, 🇫🇷 French)
-- the interactive browser (`index.html`) and developer setup guide (`setup.html`)
-
----
-
-## 📋 Table of Contents
-
-- [Data Source](#-data-source)
-- [Overview](#-overview)
-- [Interactive Browser & Developer Setup](#-interactive-browser--developer-setup)
-- [File Structure](#-file-structure)
-- [Statistics](#-statistics)
-- [Data Schema](#-data-schema)
-- [Sample Exercises](#-sample-exercises)
-- [Usage Examples](#-usage-examples)
-- [License & Use](#-license--use)
-
----
-
-## 🔍 Overview
-
-This dataset is a curated collection of **1,324 fitness exercises** for educational and research purposes. It covers a wide range of muscle groups, equipment types, and exercise categories — making it ideal for:
-
-- Building fitness or workout planning applications
-- Machine learning projects involving exercise recognition or recommendation
-- Health and wellness research
-- Educational demonstrations and prototypes
-
-Each exercise entry contains:
-
-| Field | Description |
-|---|---|
-| Unique ID | Numeric identifier (e.g. `"0001"`) |
-| Name | Full descriptive exercise name |
-| Category | Primary muscle group targeted |
-| Target | Specific target muscle |
-| Muscle Group | Supporting / synergist muscles |
-| Equipment | Equipment required (or `body weight` for bodyweight) |
-| Instructions | Step-by-step instructions for each exercise |
-| Available Languages | 🇬🇧 English · 🇪🇸 Spanish · 🇮🇹 Italian · 🇹🇷 Turkish · 🇷🇺 Russian · 🇨🇳 Chinese · 🇮🇳 Hindi · 🇵🇱 Polish · 🇰🇷 Korean · 🇫🇷 French |
-| Media | 180×180 thumbnail (`image`) + animation GIF (`gif_url`) per exercise — media © Gym visual, see [License](#-license--use) |
-
----
-
-## 🖥️ Interactive Browser & Developer Setup
-
-This repository includes two ready-to-use HTML tools — no server required, just open in a browser.
-
-> **Note:** the browser displays each exercise's 180×180 thumbnail and animation GIF alongside its metadata and instructions.
-
-### `index.html` — Exercise Browser
-
-A fully client-side exercise explorer with:
-- Live search across all 1,324 exercises
-- Filter by category, equipment, and target muscle
-- Infinite scroll grid
-- Click any card to see full details and instructions in English, Spanish, Italian, Turkish, Russian, Chinese, Hindi, Polish, Korean, or French
-
-### `setup.html` — Developer Setup Guide
-
-A step-by-step guide for integrating the dataset into your own application:
-
-1. **Database Setup** — `CREATE TABLE` SQL for SQL Server, PostgreSQL, MySQL, and SQLite. Generate a ready-to-run `.sql` file with all 1,324 INSERT statements, built entirely in your browser.
-2. **API Integration** — Copy-paste client code in **JavaScript, Python, C#, Java, PHP, Go, and cURL** showing how to call your backend API. Enter your base URL and all examples update live.
-3. **Ask Your LLM** — A structured prompt (choose your framework + database) that you can paste into ChatGPT, Claude, or Gemini to generate a complete, production-ready REST API in one shot. Supports Express.js, FastAPI, ASP.NET Core, Spring Boot, Laravel, and Gin.
-
----
-
-## 📂 File Structure
-
+```sh
+git clone https://github.com/flycoo/exercises-dataset-zh.git
+cd exercises-dataset-zh
 ```
-exercises-dataset/
+
+用浏览器打开 `index.html` 即可使用，无需安装依赖或启动服务器。
+
+- 使用中文名称、英文原名、器械或肌群搜索动作，例如「卧推」「哑铃」「背阔肌」「bench press」。
+- 按身体部位、器械和目标肌群筛选。
+- 点击卡片查看动画、主要与辅助肌群、分步说明；默认显示简体中文，也可切换其他语言。
+- 打开 `setup.html`，查看数据库建表语句、下载 SQL 导入文件、查看 API 客户端示例或复制中文 AI 后端生成提示词。
+
+也可使用静态服务器：
+
+```sh
+python -m http.server 8000
+```
+
+然后访问 <http://localhost:8000>。两个页面共用 `data/exercises.zh-CN.js`，直接打开本地文件时也可加载数据。
+
+## 中文化范围
+
+| 内容 | 处理方式 |
+| --- | --- |
+| 浏览页面与开发者指南 | 导航、按钮、搜索、筛选、弹窗、提示文案使用简体中文 |
+| 1,324 个动作名称 | 使用中文名称，并通过 `name_en` 保留原始英文名称 |
+| 10 个身体部位、28 种器械、19 个目标肌群 | 提供统一的中文术语，协同与辅助肌群也已翻译 |
+| 动作步骤 | 默认展示上游已提供的中文步骤；十种语言内容全部保留 |
+| 数据库导出 | 导出中文动作元数据，保留十种语言说明、媒体 ID 与版权署名 |
+| 原始数据 | `data/exercises.json` 和原始 Schema 保持上游格式，便于旧项目接入与来源核对 |
+
+本次中文化翻译动作名称及分类元数据，中文步骤沿用上游翻译。名称存在多种常见译法，可通过词表统一项目用语。
+
+## 文件结构
+
+```text
+exercises-dataset-zh/
 ├── data/
-│   ├── exercises.json        # Full dataset — 1,324 exercise records (JSON array)
-│   └── exercises.schema.json # JSON Schema (2020-12) describing every record
-├── images/                  # 1,324 × 180×180 thumbnails  (© Gym visual)
-├── videos/                  # 1,324 × 180×180 animation GIFs  (© Gym visual)
-├── index.html               # Interactive exercise browser (client-side, no server needed)
-├── setup.html               # Developer setup guide (DB import + API integration)
-├── NOTICE.md                # Media attribution & license terms
-└── README.md
+│   ├── exercises.json                 # 上游原始多语言数据
+│   ├── exercises.schema.json          # 上游原始 Schema
+│   ├── exercises.zh-CN.json            # 中文元数据，适用于应用接入
+│   ├── exercises.zh-CN.schema.json     # 中文版 JSON Schema 2020-12
+│   └── exercises.zh-CN.js              # 两个 HTML 页面共用的离线数据
+├── locales/zh-CN/
+│   ├── names.json                     # 按动作 ID 维护的中文名称
+│   └── terms.json                     # 身体部位、器械和肌群术语
+├── scripts/build-localization.py       # 从原始数据和词表重建中文文件
+├── tests/                             # 数据完整性、生成一致性和 SQL 导出检查
+├── images/                            # 1,324 张 180×180 缩略图
+├── videos/                            # 1,324 个 180×180 GIF 动画
+├── index.html                         # 中文动作浏览器
+├── setup.html                         # 中文开发者指南
+├── NOTICE.md                          # 上游英文媒体授权说明
+├── NOTICE.zh-CN.md                     # 中文媒体授权说明
+└── LICENSE                            # 原始许可证与媒体例外
 ```
 
-### Key Files
+## 在应用中读取数据
 
-- **`data/exercises.json`** — The primary data file. A JSON array of 1,324 exercise objects with all metadata. `image` / `gif_url` point to the local 180×180 assets, and each record carries an `attribution` field; `media_id` holds the original media reference id.
-- **`data/exercises.schema.json`** — A [JSON Schema](https://json-schema.org/) (Draft 2020-12) that formally describes every field, its type and constraints. Use it to validate the dataset or your own additions with any standard JSON Schema validator.
-- **`images/`, `videos/`** — 180×180 thumbnails and animation GIFs (© [Gym visual](https://gymvisual.com/), used with permission).
-- **`index.html`** — Standalone exercise browser. Open directly in any modern browser.
-- **`setup.html`** — Developer guide for DB setup, API integration, and LLM-assisted backend generation.
-- **`LICENSE`, `NOTICE.md`** — MIT (code/data) + the Gym visual media terms.
-
----
-
-## 📊 Statistics
-
-| Metric | Count |
-|---|---|
-| Total Exercises | **1,324** |
-| Instruction Languages | **10** |
-
-### Exercises by Body Part
-
-| Body Part | Exercise Count |
-|---|---|
-| Upper Arms | 292 |
-| Upper Legs | 227 |
-| Back | 203 |
-| Waist | 169 |
-| Chest | 163 |
-| Shoulders | 143 |
-| Lower Legs | 59 |
-| Lower Arms | 37 |
-| Cardio | 29 |
-| Neck | 2 |
-
-### Exercises by Equipment
-
-| Equipment | Exercise Count |
-|---|---|
-| Body Weight | 325 |
-| Dumbbell | 294 |
-| Cable | 157 |
-| Barbell | 154 |
-| Leverage Machine | 81 |
-| Band | 54 |
-| Smith Machine | 48 |
-| Kettlebell | 41 |
-| Weighted | 36 |
-| Stability Ball | 28 |
-| EZ Barbell | 23 |
-| Other | 83 |
-
-> **Note:** ~25% of exercises require no equipment at all — great for at-home workout applications.
-
----
-
-## 🗂️ Data Schema
-
-Each record in `data/exercises.json` follows this structure. A machine-readable [JSON Schema](data/exercises.schema.json) is also provided for validation.
-
-| Field | Type | Description |
-|---|---|---|
-| `id` | `string` | Unique numeric identifier (e.g. `"0001"`) |
-| `name` | `string` | Full exercise name (e.g. `"3/4 Sit-up"`) |
-| `category` | `string` | Body part category (e.g. `"upper arms"`, `"chest"`, `"back"`) |
-| `body_part` | `string` | Same as `category` — body part targeted |
-| `equipment` | `string` | Required equipment (e.g. `"dumbbell"`, `"body weight"`) |
-| `instructions.en` | `string` | Full step-by-step instructions in English |
-| `instructions.es` | `string` | Full step-by-step instructions in Spanish |
-| `instructions.it` | `string` | Full step-by-step instructions in Italian |
-| `instructions.tr` | `string` | Full step-by-step instructions in Turkish |
-| `instructions.ru` | `string` | Full step-by-step instructions in Russian |
-| `instructions.zh` | `string` | Full step-by-step instructions in Chinese |
-| `instructions.hi` | `string` | Full step-by-step instructions in Hindi |
-| `instructions.pl` | `string` | Full step-by-step instructions in Polish |
-| `instructions.ko` | `string` | Full step-by-step instructions in Korean |
-| `instructions.fr` | `string` | Full step-by-step instructions in French |
-| `instruction_steps.<lang>` | `array[string]` | Same instructions split into an ordered array of steps, per language (`en`, `es`, `it`, `tr`, `ru`, `zh`, `hi`, `pl`, `ko`, `fr`) |
-| `muscle_group` | `string` | Primary synergist muscle group |
-| `secondary_muscles` | `array[string]` | Additional muscles involved |
-| `target` | `string` | Primary target muscle (e.g. `"biceps"`, `"pectoralis major"`) |
-| `media_id` | `string` | Original media reference id (e.g. `"2gPfomN"`) |
-| `image` | `string` | Path to the 180×180 thumbnail (e.g. `"images/0001-2gPfomN.jpg"`) |
-| `gif_url` | `string` | Path to the 180×180 animation GIF (e.g. `"videos/0001-2gPfomN.gif"`) |
-| `attribution` | `string` | Media copyright notice — `"© Gym visual — https://gymvisual.com/"` |
-| `created_at` | `string` | ISO 8601 timestamp of record creation |
-
-### Sample Record
-
-```json
-{
-  "id": "0001",
-  "name": "3/4 sit-up",
-  "category": "waist",
-  "body_part": "waist",
-  "equipment": "body weight",
-  "instructions": {
-    "en": "Lie flat on your back with your knees bent and feet flat on the ground. Place your hands behind your head with your elbows pointing outwards. Engaging your abs, slowly lift your upper body off the ground, curling forward until your torso is at a 45-degree angle. Pause for a moment at the top, then slowly lower your upper body back down to the starting position. Repeat for the desired number of repetitions.",
-    "es": "Túmbate sobre tu espalda con las rodillas flexionadas y los pies apoyados en el suelo. ...",
-    "it": "Sdraiati sulla schiena con le ginocchia piegate e i piedi appoggiati a terra. ...",
-    "tr": "Sırt üstü yatın, dizlerinizi bükün ve ayaklarınızı yere düz koyun. ...",
-    "ru": "Лягте на спину, согните колени и поставьте ступни на землю. ...",
-    "zh": "平躺，膝盖弯曲，双脚平放在地上。...",
-    "hi": "अपने घुटनों को मोड़कर और पैरों को ज़मीन पर सपाट रखते हुए अपनी पीठ के बल लेट जाएँ।...",
-    "pl": "Połóż się płasko na plecach, ugnij kolana i oprzyj stopy płasko na pod ...",
-    "ko": "등을 바닥에 누워 무릎을 구부리고 발을 바닥에 붙입니다. ...",
-    "fr": "Allonge-toi sur le dos, les genoux fléchis et les pieds à plat au sol. ..."
-  },
-  "muscle_group": "hip flexors",
-  "secondary_muscles": ["hip flexors", "lower back"],
-  "target": "abs",
-  "media_id": "2gPfomN",
-  "image": "images/0001-2gPfomN.jpg",
-  "gif_url": "videos/0001-2gPfomN.gif",
-  "attribution": "© Gym visual — https://gymvisual.com/",
-  "created_at": "2026-03-18T12:31:32.854798+00:00"
-}
-```
-
----
-
-## 🎬 Sample Exercises
-
-> Each example ships a 180×180 thumbnail (`image`) and animation GIF (`gif_url`), © [Gym visual](https://gymvisual.com/).
-
-### 1 — Barbell Bench Press · Chest
-
-<img src="videos/0025-EIeI8Vf.gif" width="150" align="right" alt="Barbell Bench Press" />
-
-> **Equipment:** Barbell · **Target:** Pectorals · **Secondary:** Triceps, Shoulders · **Media ID:** `EIeI8Vf`
-
-The Barbell Bench Press is the cornerstone of chest training and one of the "Big Three" powerlifting movements. Lying flat on a bench, you lower a loaded barbell to your chest and press it back up explosively. It simultaneously recruits the pectorals, triceps, and anterior deltoids, making it the single most effective exercise for upper body pushing strength and chest mass development.
-
-**Key cues:** Retract and depress your scapulae before unracking. Keep your feet flat on the floor, arch your lower back naturally, and maintain a shoulder-width grip. Lower the bar under control to mid-chest and drive up through the heels.
-
-### 2 — Barbell Deadlift · Upper Legs / Back
-
-<img src="videos/0032-ila4NZS.gif" width="150" align="right" alt="Barbell Deadlift" />
-
-> **Equipment:** Barbell · **Target:** Glutes · **Secondary:** Hamstrings, Lower Back · **Media ID:** `ila4NZS`
-
-The Barbell Deadlift is widely regarded as the ultimate full-body strength exercise. It engages virtually every major muscle in the posterior chain — glutes, hamstrings, and lower back — while also demanding significant contribution from the upper back, traps, and grip. Proper spinal alignment and bracing technique are critical for both performance and safety.
-
-**Key cues:** Set up with the bar over your mid-foot. Hinge at the hips, grip just outside your legs, brace your core hard, and keep the bar in contact with your shins throughout the lift. Drive the floor away, lock out at the top by squeezing glutes and extending hips fully.
-
-### 3 — Barbell Full Squat · Upper Legs
-
-<img src="videos/0043-qXTaZnJ.gif" width="150" align="right" alt="Barbell Full Squat" />
-
-> **Equipment:** Barbell · **Target:** Glutes · **Secondary:** Quadriceps, Hamstrings, Calves, Core · **Media ID:** `qXTaZnJ`
-
-Often called "the king of all exercises," the Barbell Full Squat demands coordinated strength across the entire lower body and core. Breaking parallel maximizes glute and hamstring activation compared to partial squats. It is the foundation of nearly every strength and hypertrophy program.
-
-**Key cues:** Bar on upper traps (high bar) or rear deltoids (low bar). Brace your core before descent, push knees out in line with toes, sit into your hips, and descend until your thighs pass parallel to the floor. Drive through the whole foot to stand.
-
-### 4 — Dumbbell Biceps Curl · Upper Arms
-
-<img src="videos/0294-NbVPDMW.gif" width="150" align="right" alt="Dumbbell Biceps Curl" />
-
-> **Equipment:** Dumbbell · **Target:** Biceps · **Secondary:** Forearms · **Media ID:** `NbVPDMW`
-
-The Dumbbell Biceps Curl is the most recognized isolation exercise for the arms. Training each side independently helps identify and correct strength imbalances between limbs. The supinated (palms-up) grip maximizes biceps contraction at the top of the movement.
-
-**Key cues:** Stand tall with elbows pinned to your sides. Supinate your wrists as you curl up, squeeze at the top, and lower under control without swinging. Avoid using momentum from the shoulders or lower back.
-
-### 5 — Pull-up · Back
-
-<img src="videos/0652-lBDjFxJ.gif" width="150" align="right" alt="Pull-up" />
-
-> **Equipment:** Body Weight · **Target:** Lats · **Secondary:** Biceps, Forearms · **Media ID:** `lBDjFxJ`
-
-The Pull-up is the gold standard bodyweight exercise for upper body pulling strength. It primarily develops the latissimus dorsi — creating the coveted V-taper — while heavily involving the biceps, rear deltoids, and core stabilizers. It scales from beginner (band-assisted) to advanced (weighted).
-
-**Key cues:** Dead hang from an overhand grip, shoulder-width or slightly wider. Initiate with your lats by depressing your shoulder blades, then pull your chest toward the bar. Lower fully between reps to maintain range of motion.
-
-### 6 — Dumbbell Lateral Raise · Shoulders
-
-<img src="videos/0334-DsgkuIt.gif" width="150" align="right" alt="Dumbbell Lateral Raise" />
-
-> **Equipment:** Dumbbell · **Target:** Delts · **Secondary:** Traps · **Media ID:** `DsgkuIt`
-
-The Dumbbell Lateral Raise is the go-to isolation exercise for building shoulder width. It directly targets the lateral (middle) head of the deltoid, which is responsible for the broad-shouldered look. Controlled tempo and strict form matter far more than load.
-
-**Key cues:** Stand with a slight bend in your elbows throughout. Raise the dumbbells out to the sides until your arms are parallel to the floor — no higher. Lead with your elbows, not your wrists. Lower slowly under control to maximize time under tension.
-
----
-
-## 🚀 Usage Examples
-
-### Python — Load and Filter
+Python：
 
 ```python
 import json
 
-with open("data/exercises.json", "r", encoding="utf-8") as f:
-    exercises = json.load(f)
+with open("data/exercises.zh-CN.json", encoding="utf-8") as file:
+    exercises = json.load(file)
 
-print(f"Total exercises loaded: {len(exercises)}")
-
-# Filter by category
-chest_exercises = [ex for ex in exercises if ex["category"] == "chest"]
-print(f"Chest exercises: {len(chest_exercises)}")
-# -> Chest exercises: 163
-
-# Filter by equipment
-bodyweight = [ex for ex in exercises if ex["equipment"] == "body weight"]
-print(f"Bodyweight exercises: {len(bodyweight)}")
-# -> Bodyweight exercises: 325
-
-# Get all unique categories
-categories = sorted({ex["category"] for ex in exercises})
-print("Categories:", categories)
-
-# Access multilingual instructions
-ex = exercises[0]
-print(ex["instructions"]["en"])  # English
-print(ex["instructions"]["es"])  # Spanish
-print(ex["instructions"]["it"])  # Italian
-print(ex["instructions"]["tr"])  # Turkish
-print(ex["instructions"]["ru"])  # Russian
-print(ex["instructions"]["zh"])  # Chinese
-print(ex["instructions"]["hi"])  # Hindi
-print(ex["instructions"]["pl"])  # Polish
-print(ex["instructions"]["ko"])  # Korean
-print(ex["instructions"]["fr"])  # French
+chest = [exercise for exercise in exercises if exercise["category"] == "胸部"]
+print(f"胸部动作：{len(chest)}")  # 163
+print(exercises[0]["name"])  # 四分之三程仰卧起坐
+print(exercises[0]["name_en"])  # 3/4 sit-up
+for step in exercises[0]["instruction_steps"]["zh"]:
+    print(step)
 ```
 
-### Python — Load with Pandas
-
-```python
-import json
-import pandas as pd
-
-with open("data/exercises.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
-
-df = pd.DataFrame(data)
-
-# Top categories by exercise count
-print(df["category"].value_counts().head(10))
-
-# All barbell exercises targeting upper legs
-barbell_quads = df[(df["equipment"] == "barbell") & (df["category"] == "upper legs")]
-print(barbell_quads[["name", "target", "equipment"]])
-```
-
-### JavaScript / Node.js
+JavaScript / Node.js：
 
 ```js
-const exercises = require("./data/exercises.json");
-
-console.log(`Total exercises: ${exercises.length}`);
-
-// Bodyweight exercises only
-const bodyweight = exercises.filter(ex => ex.equipment === "body weight");
-console.log(`Bodyweight exercises: ${bodyweight.length}`);
-// -> Bodyweight exercises: 325
-
-// Group exercises by category
-const byCategory = exercises.reduce((acc, ex) => {
-  acc[ex.category] = (acc[ex.category] || []);
-  acc[ex.category].push(ex);
-  return acc;
-}, {});
-
-// Access multilingual instructions
-const ex = exercises[0];
-console.log(ex.instructions.en); // English
-console.log(ex.instructions.es); // Spanish
-console.log(ex.instructions.it); // Italian
-console.log(ex.instructions.tr); // Turkish
-console.log(ex.instructions.ru); // Russian
-console.log(ex.instructions.zh); // Chinese
-console.log(ex.instructions.hi); // Hindi
-console.log(ex.instructions.pl); // Polish
-console.log(ex.instructions.ko); // Korean
-console.log(ex.instructions.fr); // French
+const exercises = require("./data/exercises.zh-CN.json");
+const bodyweight = exercises.filter(exercise => exercise.equipment === "自重");
+console.log(`自重动作：${bodyweight.length}`); // 325
+console.log(exercises[0].instructions.zh);
 ```
 
-### TypeScript — Type-safe Usage
+TypeScript 类型示例：
 
-```typescript
+```ts
+type Language = "zh" | "en" | "es" | "it" | "tr" | "ru" | "hi" | "pl" | "ko" | "fr";
+
 interface Exercise {
   id: string;
   name: string;
+  name_en: string;
   category: string;
   body_part: string;
   equipment: string;
-  instructions: {
-    en: string;
-    es: string;
-    it: string;
-    tr: string;
-    ru: string;
-    zh: string;
-    hi: string;
-    pl: string;
-    ko: string;
-    fr: string;
-  };
-  instruction_steps: {
-    en: string[];
-    es: string[];
-    it: string[];
-    tr: string[];
-    ru: string[];
-    zh: string[];
-    hi: string[];
-    pl: string[];
-    ko: string[];
-    fr: string[];
-  };
+  instructions: Record<Language, string>;
+  instruction_steps: Record<Language, string[]>;
   muscle_group: string;
   secondary_muscles: string[];
   target: string;
@@ -434,20 +113,64 @@ interface Exercise {
   attribution: string;
   created_at: string;
 }
-
-import exercises from "./data/exercises.json";
-const data = exercises as Exercise[];
-
-const randomWorkout: Exercise[] = data.slice(0, 6);
-console.log("First 6 exercises:", randomWorkout.map(e => e.name));
 ```
 
----
+`id` 始终是保留前导零的字符串。中文版的 `category`、`body_part`、`equipment`、`target`、`muscle_group` 和 `secondary_muscles` 使用中文值；已有应用如果仍使用英文筛选条件，请继续读取 `data/exercises.json`，或同步调整筛选条件。
 
-## 📄 License & Use
+`image` 与 `gif_url` 保存仓库内相对路径。服务器或 CDN 部署时需拼接对应资源根地址。
 
-This repository is a **developer setup wizard and structured exercise dataset** — exercise metadata, multilingual instruction translations, and 180×180 exercise media.
+## 数据统计
 
-- **Code, tooling, dataset structure, and instruction text** are released under the [MIT License](LICENSE).
-- **Exercise media (images & GIFs) is © [Gym visual](https://gymvisual.com/)** and redistributed here **with permission**, at 180×180 resolution — see [`NOTICE.md`](NOTICE.md) and the media exception in [`LICENSE`](LICENSE). Keep the `© Gym visual — https://gymvisual.com/` attribution intact. Reuse is governed by [Gym visual's Terms & Conditions](https://gymvisual.com/content/3-terms-and-conditions-of-use); obtain your own license there before reusing the media.
-- This repository does **not** claim ownership of the underlying exercise content or media.
+| 身体部位 | 动作数量 |
+| --- | ---: |
+| 上臂 | 292 |
+| 大腿 | 227 |
+| 背部 | 203 |
+| 腰腹部 | 169 |
+| 胸部 | 163 |
+| 肩部 | 143 |
+| 小腿 | 59 |
+| 前臂 | 37 |
+| 有氧运动 | 29 |
+| 颈部 | 2 |
+
+支持的动作说明语言：简体中文、英语、西班牙语、意大利语、土耳其语、俄语、印地语、波兰语、韩语、法语。
+
+## 数据库与 API 接入
+
+`setup.html` 支持 SQL Server、PostgreSQL、MySQL、SQLite。先执行建表语句，再下载并执行对应数据库的 INSERT 文件。SQL Server 使用 Unicode 字段与 `N'…'` 字符串，MySQL 使用 `utf8mb4`。
+
+SQL 导出包含中文元数据、十种语言的完整说明、`media_id`、`attribution` 和原始媒体路径。`name_en` 与 `instruction_steps` 未单独导出为数据库字段；如需保留，请按 `id` 从 JSON 导入并扩展表结构。
+
+页面内的 API 示例用于调用你自己实现的服务，项目不包含在线后端。将示例根地址改为实际 API 地址后使用。中文 AI 提示词可辅助生成 Express.js、FastAPI、ASP.NET Core、Spring Boot、Laravel 或 Gin 后端的初始代码，生成后需自行审查与测试。
+
+## 修改译名与同步上游
+
+修改 `locales/zh-CN/names.json` 中对应 ID 的名称，或修改 `locales/zh-CN/terms.json` 中的统一术语，然后运行：
+
+```sh
+python scripts/build-localization.py
+```
+
+脚本检查名称 ID 是否完整、中文步骤是否存在、分类术语是否齐全，再生成中文 JSON、离线脚本与 Schema。生成文件请勿直接编辑。
+
+同步上游时，先合并上游原始数据与媒体更新，为新增动作补齐中文名称和术语，再重新生成并验证。原项目中重复名称对应的不同 ID 会原样保留，不合并或重排记录。
+
+## 开发验证
+
+需要 Python 3.10+、Node.js 18+；浏览项目本身不需要这些开发依赖。
+
+```sh
+python -m pip install -r requirements-dev.txt
+python -m unittest discover -s tests -v
+```
+
+验证内容包括：1,324 条记录的 ID、字段与媒体完整性；两份数据的说明和版权一致性；中文 Schema；生成文件一致性；页面 JavaScript 语法；SQLite 导出实际导入与中文、法语、版权字段核对。其他数据库的模板做字段与 Unicode 配置检查，未代替真实数据库集成测试。
+
+## 来源与许可
+
+- 上游作者：[Hasan Emir Yıldırım](https://github.com/hasaneyldrm)。
+- 代码、工具、数据结构、动作文本和翻译采用 [MIT 许可证](LICENSE)，保留原作者版权声明。
+- **图片与 GIF 不在 MIT 许可范围内**，版权归 **Gym visual** 所有。原仓库说明其以单独书面许可提供 180×180 媒体；克隆或 fork 并不自动授予你新的媒体使用许可。
+- 展示媒体时须保留 **© Gym visual — https://gymvisual.com/**，使用和再分发须遵守其[使用条款](https://gymvisual.com/content/3-terms-and-conditions-of-use)，并按需要直接取得许可。
+- 具体说明见原始 [NOTICE.md](NOTICE.md) 和[中文说明](NOTICE.zh-CN.md)。

@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/flycoo/exercises-dataset-zh/blob/main/data/exercises.zh-CN.schema.json",
+  "title": "中文健身动作数据集",
+  "description": "简体中文元数据与多语言动作说明；name_en 保留英文名称，ID 和媒体路径与原始数据一致。",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/exercise"
+  },
+  "$defs": {
+    "languageMap": {
+      "type": "object",
+      "description": "以 ISO 639-1 语言代码为键的说明文本。",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "es": {
+          "type": "string"
+        },
+        "it": {
+          "type": "string"
+        },
+        "tr": {
+          "type": "string"
+        },
+        "ru": {
+          "type": "string"
+        },
+        "zh": {
+          "type": "string"
+        },
+        "hi": {
+          "type": "string"
+        },
+        "pl": {
+          "type": "string"
+        },
+        "ko": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "en",
+        "es",
+        "it",
+        "tr",
+        "ru",
+        "zh",
+        "hi",
+        "pl",
+        "ko",
+        "fr"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "languageStepsMap": {
+      "type": "object",
+      "description": "以 ISO 639-1 语言代码为键的步骤数组。",
+      "properties": {
+        "en": {
+          "$ref": "#/$defs/steps"
+        },
+        "es": {
+          "$ref": "#/$defs/steps"
+        },
+        "it": {
+          "$ref": "#/$defs/steps"
+        },
+        "tr": {
+          "$ref": "#/$defs/steps"
+        },
+        "ru": {
+          "$ref": "#/$defs/steps"
+        },
+        "zh": {
+          "$ref": "#/$defs/steps"
+        },
+        "hi": {
+          "$ref": "#/$defs/steps"
+        },
+        "pl": {
+          "$ref": "#/$defs/steps"
+        },
+        "ko": {
+          "$ref": "#/$defs/steps"
+        },
+        "fr": {
+          "$ref": "#/$defs/steps"
+        }
+      },
+      "required": [
+        "en",
+        "es",
+        "it",
+        "tr",
+        "ru",
+        "zh",
+        "hi",
+        "pl",
+        "ko",
+        "fr"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/steps"
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "四位数字动作 ID，与原始数据一致。",
+          "pattern": "^[0-9]{4}$"
+        },
+        "name": {
+          "type": "string",
+          "description": "简体中文动作名称。",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "description": "中文身体部位分类，与 body_part 一致。",
+          "minLength": 1
+        },
+        "body_part": {
+          "type": "string",
+          "description": "中文身体部位。",
+          "enum": [
+            "背部",
+            "有氧运动",
+            "胸部",
+            "前臂",
+            "小腿",
+            "颈部",
+            "肩部",
+            "上臂",
+            "大腿",
+            "腰腹部"
+          ]
+        },
+        "equipment": {
+          "type": "string",
+          "description": "中文器械名称。",
+          "minLength": 1
+        },
+        "instructions": {
+          "$ref": "#/$defs/languageMap",
+          "description": "以语言代码为键的完整动作说明。"
+        },
+        "instruction_steps": {
+          "$ref": "#/$defs/languageStepsMap",
+          "description": "以语言代码为键的有序动作步骤。"
+        },
+        "muscle_group": {
+          "type": "string",
+          "description": "中文协同肌群。",
+          "minLength": 1
+        },
+        "secondary_muscles": {
+          "type": "array",
+          "description": "中文辅助肌群列表。",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "target": {
+          "type": "string",
+          "description": "中文主要目标肌群。",
+          "minLength": 1
+        },
+        "media_id": {
+          "type": "string",
+          "description": "原始媒体引用 ID。",
+          "minLength": 1
+        },
+        "image": {
+          "type": "string",
+          "description": "180×180 缩略图相对路径。",
+          "pattern": "^images/.+\\.(jpg|jpeg|png)$"
+        },
+        "gif_url": {
+          "type": "string",
+          "description": "180×180 动画 GIF 相对路径。",
+          "pattern": "^videos/.+\\.gif$"
+        },
+        "attribution": {
+          "type": "string",
+          "description": "保留的原始媒体版权署名。",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "description": "原始记录创建时间，ISO 8601 格式。",
+          "format": "date-time"
+        },
+        "name_en": {
+          "type": "string",
+          "minLength": 1,
+          "description": "原始英文名称，用于英文搜索和来源核对。"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "category",
+        "body_part",
+        "equipment",
+        "instructions",
+        "instruction_steps",
+        "muscle_group",
+        "secondary_muscles",
+        "target",
+        "media_id",
+        "image",
+        "gif_url",
+        "attribution",
+        "created_at",
+        "name_en"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
